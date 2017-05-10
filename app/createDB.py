@@ -23,4 +23,6 @@ class Moviecast(db.Model):
     title = db.Column(db.String(100))
     year = db.Column(db.Integer(4))
     name = db.Column(db.String(100))
+    type = db.Column(db.String(10))
     character = db.Column(db.String(100))
+    n = db.Column(db.Integer(10))
