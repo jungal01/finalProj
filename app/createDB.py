@@ -9,7 +9,7 @@ db = SQLAlchemy(app)
 class Movie(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(80))
-    year = db.Column(db.Integer(4), unique=True)
+    year = db.Column(db.Integer(4))
 
     def __init__(self, username, email):
         self.title = title
@@ -19,4 +19,10 @@ class Movie(db.Model):
         return '<Title %r>' % self.title
 
 class Moviecast(db.Model):
-    id = 
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100))
+    year = db.Column(db.Integer(4))
+    name = db.Column(db.String(100))
+    type = db.Column(db.String(10))
+    character = db.Column(db.String(100))
+    n = db.Column(db.Integer(10))
