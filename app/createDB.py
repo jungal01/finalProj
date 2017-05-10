@@ -8,7 +8,7 @@ db = SQLAlchemy(app)
 
 class Movie(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(80), unique=True)
+    title = db.Column(db.String(80))
     year = db.Column(db.Integer(4), unique=True)
 
     def __init__(self, username, email):
@@ -17,3 +17,6 @@ class Movie(db.Model):
 
     def __repr__(self):
         return '<Title %r>' % self.title
+
+class Moviecast(db.Model):
+    id = 
