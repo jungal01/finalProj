@@ -21,11 +21,11 @@ def allMovies():
                             movies= list(movies),
                             columns=[x for x in movieIds])
 #For testing purposes
-@app.route('/')
+@app.route('/test')
 def moviesubmit():
     return render_template("movie.html")
 
-@app.route('/', methods=['POST'])
+@app.route('/test', methods=['POST'])
 def my_form_post():
     
     text = request.form['text']
