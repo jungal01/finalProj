@@ -14,8 +14,8 @@ engine = db_create.engine
 
 # Session = sessionmaker(bind=engine)
 Session = db_create.Session
-db = Session() #called "session" in db_create.py
-
+#db = Session() #called "session" in db_create.py
+db = db_create.session
 @app.route('/')
 def allMovies():
     movies = set()
@@ -35,8 +35,8 @@ def moviesubmit():
 
     #movieQ = db.query(Release_Date, Cast).join('Title').filter_by(asc(title=movie)).limit(5)
     query = db.query(db_create.Title).order_by(db_create.Title.year).limit(3)
-    print([result.Title for result in query])
-    daActorList = [result.Title for result in query]
+    print([result.title for result in query])
+    daActorList = [result.title for result in query]
     #actorSet.add(query.date)
     # count += 1
     # for x in movieQ:
