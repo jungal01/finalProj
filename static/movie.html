@@ -1,1 +1,8 @@
 {% extends moviepage.html %}
+{% block content %}
+<h4>Enter in a movie title</h4>
+    <form action="." method="POST">
+        <input type="text" name="text">
+        <input type="submit" name="moviesubmit" value="Send">
+    </form>
+{% endblock %}
