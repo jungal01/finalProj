@@ -23,7 +23,19 @@ def allMovies():
 #For testing purposes
 @app.route('/test')
 def moviesubmit():
-    return render_template("moviepage.html")
+    actorSet = set()
+    count = 1
+
+    movieQ = db.query(release_date, cast).join('title').filter_by(asc(title=movie)).limit(5)
+    actorSet.add(movieQ.date)
+    count += 1
+    for x in movieQ:
+        actorSet.add(x.name)
+        count+=1
+
+    return render_template('moviepage.html',
+                            daActorList = list(actorSet),
+                            columns = [x for x in range(count)])
 
 @app.route('/test', methods=['POST'])
 def my_form_post():
