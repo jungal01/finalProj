@@ -30,7 +30,7 @@ def my_form_post():
     
     text = request.form['text']
     body = {'t': text}
-    response = requests.post("http://codecademy.com/learn-http/",data=body)
+    response = requests.post("http://www.omdbapi.com/?",data=body)
     # processed_text = text.upper()
     return response
 
