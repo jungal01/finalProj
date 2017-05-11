@@ -23,7 +23,7 @@ def allMovies():
 #For testing purposes
 @app.route('/test')
 def moviesubmit():
-    return render_template("movie.html")
+    return render_template("moviepage.html")
 
 @app.route('/test', methods=['POST'])
 def my_form_post():
