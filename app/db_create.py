@@ -79,6 +79,7 @@ with open("datafiles/title.csv", "r") as f:
         print("title number:", num)
 print("okay, now let's save those titles")
 session.bulk_save_objects(aset)
+print("now commit titles")
 session.commit()
 
 #release_date
@@ -122,6 +123,7 @@ with open("datafiles/release_date.csv", "r") as f:
 
 print("let's commit these release dates (oh please work)")
 session.bulk_save_objects(aset)
+print("now commit release_dates")
 session.commit()
 
 
@@ -158,6 +160,7 @@ with open("datafiles/cast.csv", "r") as f:
         num += 1
 print("now let's save the cast!")
 session.bulk_save_objects(aset)
+print("now commit cast")
 session.commit()
 
 print("We can now run session queries")
