@@ -19,7 +19,7 @@ def allMovies():
                             movies= list(movies),
                             columns=[x for x in movieIds])
 
-@app.route('/movie')
+@app.route('/movie/<string:movie>')
 def specificMovie(movie):
     actorSet = set()
     count = 1
