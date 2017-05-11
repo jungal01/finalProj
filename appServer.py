@@ -19,15 +19,12 @@ def allMovies():
                             movies= list(movies),
                             columns=[x for x in movieIds])
 
-@app.route('/movie/<string:movie>')
+@app.route('/movie')
 def specificMovie(movie):
     actorSet = set()
     count = 1
 
     movieQ = db.query(release_date, cast).join('title').filter_by(title=movie).all()
-    # in case the above query aren't working, this is the format for querying that I used in my db_create.py file
-    # query = session.query(Title).order_by(Title.title).limit(3)
-    # print([result.title for result in query])
     actorSet.add(movieQ.date)
     count += 1
     for x in movieQ:
@@ -44,3 +41,6 @@ def specificMovie(movie):
 
 #this path is optional and low priority
 #@app.route('/history/movie')
+
+if __name__ == '__main__':
+    app.run(debug=True, port=8080)
