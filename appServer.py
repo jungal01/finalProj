@@ -21,10 +21,23 @@ def allMovies():
 
 @app.route('/movie')
 def specificMovie(movie):
-    for x in db.query()
+    actorSet = set()
+    count = 1
+
+    movieQ = db.query(release_date, cast).join('title').filter_by(title=movie).all()
+    actorSet.add(movieQ.date)
+    count += 1
+    for x in movieQ:
+        actorSet.add(x.name)
+        count+=1
+
+    return render_template('movie.html',
+                            actorList = list(actorSet),
+                            columns = [x for x in range(count)])
 
 @app.route('/history', method=['GET'])
 
 @app.route('/history', method=['DELETE'])
 
-@app.route('/history/movie')
+#this path is optional and low priority
+#@app.route('/history/movie')
