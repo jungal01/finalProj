@@ -160,6 +160,7 @@ print("now let's save the cast!")
 session.bulk_save_objects(aset)
 session.commit()
 
+print("We can now run session queries")
 # Print it all!
 # titles = session.query(Title).all()
 # print(titles)
