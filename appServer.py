@@ -2,15 +2,11 @@ from flask import Flask, render_template, request
 import sqlalchemy
 from sqlalchemy.orm import sessionmaker
 import os
-import urlparse
 
 
 app = Flask(__name__)
 
-urlparse.uses_netloc.append("postgres")
-url = urlparse.urlparse(os.environ["DATABASE_URL"])
-
-engine = create_engine('postgresql://{}', echo=False .format(url))
+engine = create_engine('postgresql://{}', echo=False .format(os.environ["DATABASE_URL"]))
 db = sessionmaker(bind=engine)
 
 @app.route('/')

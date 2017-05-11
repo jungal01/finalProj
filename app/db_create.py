@@ -2,12 +2,8 @@ from sqlalchemy import create_engine, Column, Integer, Numeric, String, desc
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 import os
-import urlparse
 
-urlparse.uses_netloc.append("postgres")
-url = urlparse.urlparse(os.environ["DATABASE_URL"])
-
-engine = create_engine('postgresql://{}' .format(url))
+engine = create_engine('postgresql://{}' .format(os.environ["DATABASE_URL"]))
 
 Session = sessionmaker(bind=engine)
 session = Session()
