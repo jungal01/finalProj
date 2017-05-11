@@ -3,7 +3,8 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 import os
 
-engine = create_engine('postgresql://{}' .format(os.environ["DATABASE_URL"]))
+#engine = create_engine('postgresql://{}' .format(os.environ["DATABASE_URL"]))
+engine = create_engine('sqlite:///:memory:')
 
 Session = sessionmaker(bind=engine)
 session = Session()
@@ -48,7 +49,7 @@ Base.metadata.drop_all(engine)
 Base.metadata.create_all(engine)
 
 #title
-with open("datafiles/title.csv", "r") as f:
+with open("app/datafiles/title.csv", "r") as f:
     num = 0
     aset = set()
     listoftitles = []
@@ -83,7 +84,7 @@ print("now commit titles")
 session.commit()
 
 #release_date
-with open("datafiles/release_date.csv", "r") as f:
+with open("app/datafiles/release_date.csv", "r") as f:
     # pleasestop = 0
     aset = set()
     num = 0
@@ -129,7 +130,7 @@ session.commit()
 
 
 #cast
-with open("datafiles/cast.csv", "r") as f:
+with open("app/datafiles/cast.csv", "r") as f:
     # pleasestop = 0
     num = 0
     aset = set()
