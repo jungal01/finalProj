@@ -20,6 +20,20 @@ def allMovies():
     return render_template('index.html',
                             movies= list(movies),
                             columns=[x for x in movieIds])
+#For testing purposes
+@app.route('/')
+def moviesubmit():
+    return render_template("movie.html")
+
+@app.route('/', methods=['POST'])
+def my_form_post():
+    
+    text = request.form['text']
+    body = {'t': text}
+    response = requests.post("http://codecademy.com/learn-http/",data=body)
+    # processed_text = text.upper()
+    return response
+
 
 @app.route('/movie/<string:movie>')
 def specificMovie(movie):
