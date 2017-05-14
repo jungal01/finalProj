@@ -58,12 +58,6 @@ with open("app/datafiles/title.csv", "r") as f:
     for aline in f:
         if "title," in aline:
             continue
-        # if pleasestop == 3:
-        #     break
-        #linestr = ""
-        # for ch in aline:
-        #     if ch is not "\n":
-        #         linestr = linestr + ch
 
         linestr = aline.split(',')
         #print(linestr)
