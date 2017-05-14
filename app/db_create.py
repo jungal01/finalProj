@@ -51,7 +51,7 @@ Base.metadata.create_all(engine)
 #title
 with open("app/datafiles/title.csv", "r") as f:
     num = 0
-    aset = set()
+    #aset = set()
     listoftitles = []
     # f_no_colname = iter(f)
     # next(f_no_colname)
@@ -68,19 +68,19 @@ with open("app/datafiles/title.csv", "r") as f:
         # if linestr[2] < 2000:
         #     continue
         new_title = Title(title_id=num, title=linestr[1], year=linestr[2])
-        #session.add(new_title)
-        aset.add(new_title)
+        session.add(new_title)
+        #aset.add(new_title)
         num += 1
         print("title number:", num)
 print("okay, now let's save those titles")
-session.bulk_save_objects(aset)
+#session.bulk_save_objects(aset)
 print("now commit titles")
 session.commit()
 
 #release_date
 with open("app/datafiles/release_date.csv", "r") as f:
     # pleasestop = 0
-    aset = set()
+    #aset = set()
     num = 0
     f_no_colname = iter(f)
     next(f_no_colname)
@@ -111,13 +111,13 @@ with open("app/datafiles/release_date.csv", "r") as f:
         dow=linestr[6]
         )
         #session.add(new_release_date)
-        aset.add(new_release_date)
-        #session.add(new_release_date)
+        #aset.add(new_release_date)
+        session.add(new_release_date)
         print("rld number:", num)
         num += 1
 
 print("let's commit these release dates (oh please work)")
-session.bulk_save_objects(aset)
+#session.bulk_save_objects(aset)
 print("now commit release_dates")
 session.commit()
 
@@ -127,7 +127,7 @@ session.commit()
 with open("app/datafiles/cast.csv", "r") as f:
     # pleasestop = 0
     num = 0
-    aset = set()
+    #aset = set()
     f_no_colname = iter(f)
     next(f_no_colname)
     for aline in f_no_colname:
@@ -149,12 +149,12 @@ with open("app/datafiles/cast.csv", "r") as f:
         year=linestr[2],
         name=linestr[3]
         )
-        # session.add(new_cast)
-        aset.add(new_cast)
+        session.add(new_cast)
+        #aset.add(new_cast)
         print("cast number:", num)
         num += 1
 print("now let's save the cast!")
-session.bulk_save_objects(aset)
+#session.bulk_save_objects(aset)
 print("now commit cast")
 session.commit()
 
