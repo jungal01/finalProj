@@ -1,4 +1,9 @@
-{% extends mainpage.html %}
-{% block content %}
+{% extends ../templates/base.html %}
 
+{% block content %}
+<table class=table>
+  {% for item in movies %}
+    <tr><td>{{ item }}</td></tr>
+  {% endfor %}
+</table>
 {% endblock %}
