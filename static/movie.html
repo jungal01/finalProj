@@ -1,4 +1,13 @@
-{% extends moviepage.html %}
-{% block content %}
+{% extends ../templates/base.html %}
 
+{% block content %}
+  <div id=mainDiv>
+    <table class=table>
+      {% for  item in castList %}
+      <tr><td>{{ item }}</td></tr>
+    </table>
+  </div>
+
+  <aside class=right></aside>
+  <aside class=left></aside>
 {% endblock %}
