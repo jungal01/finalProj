@@ -4,7 +4,7 @@ import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import os
-from app import db_create
+import app/db_create
 
 app = Flask(__name__)
 #engine = create_engine('postgresql://{}', echo=False .format(os.environ["DATABASE_URL"]))
