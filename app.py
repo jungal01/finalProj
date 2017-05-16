@@ -28,15 +28,15 @@ def index():
     return render_template('index.html', titleList=alist, title='Movies Search')
 
 @app.route('/<string:movie>')
-def moviesearch(movie):
+def moviesearch(movie=""):
     connection = engine.connect()
     damovie = str(movie)
     sqlquery = "select title from title where title = " + damovie
-    result = connect.execute(sqlquery)
+    result = connection.execute(sqlquery)
     alist = []
     for row in result:
         alist.append(row['title'])
-    return render_template('')
+    return render_template('form.html', title=alist)
 
 
 if __name__ == '__main__':
