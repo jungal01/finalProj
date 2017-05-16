@@ -52,19 +52,19 @@ class Cast(Base): #replace file then you're done
 Base.metadata.drop_all(engine)
 Base.metadata.create_all(engine)
 
-with open('title.json','r') as titles:
+with open('datafiles/title.json','r') as titles:
     all_titles = load(titles)
     for t in all_titles:
         newtitle = Title(title=t['title'], year=t['year'])
         session.add(newtitle)
 
-with open('release_date.json') as release_dates:
+with open('datafiles/release_date.json') as release_dates:
     all_release_dates = load(release_dates)
     for r in all_release_dates:
         newrd = Release_Date(title=r['title'],year=r['year'], country=r['country'],date=r['date'],month=r['month'],day=r['day'],dow=r['dow'])
         session.add(newrd)
 
-with open('cast.json') as casts: #I know "casts" isn't a word
+with open('datafiles/cast.json') as casts: #I know "casts" isn't a word
     all_cast = load(casts)
     for c in all_cast:
         newcast = Cast(name=c['name'], year=c['year'],title=c['title'])
