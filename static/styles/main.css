@@ -6,11 +6,17 @@ html{
 body{
   background-image: url("moviebackground.jpg");
   margin: 20px 15px 10px 15px;
-  padding: 90px 10px 5px 10px;
+  padding: 140px 10px 5px 10px;
   color: white;
 
 }
 
 .horiz{
   display:inline-block;
+}
+h1{
+  text-align: center;
+}
+li{
+  font-size: 16px;
 }
