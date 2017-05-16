@@ -28,7 +28,9 @@ def index():
     return render_template('index.html', titleList=alist, title='Movies Search')
 
 @app.route('/<string:movie>')
-def moviesearch(movie=""):
+def moviesearch(movie):
+    if movie == "favicon.ico":
+        movie == "" 
     connection = engine.connect()
     damovie = str(movie)
     sqlquery = "select title from title where title = " + damovie
@@ -37,6 +39,18 @@ def moviesearch(movie=""):
     for row in result:
         alist.append(row['title'])
     return render_template('form.html', title=alist)
+
+@app.route('/cool_form', methods=['GET', 'POST'])
+def cool_form():
+    if request.method == 'POST':
+        # do stuff when the form is submitted
+
+        # redirect to end the POST handling
+        # the redirect can be to the same route or somewhere else
+        return redirect(url_for('moviesearch'))
+
+    # show the form, it wasn't submitted
+    return render_template('form.html')
 
 
 if __name__ == '__main__':
