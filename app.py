@@ -29,7 +29,14 @@ def index():
 
 @app.route('/<string:movie>')
 def moviesearch(movie):
-    return movie
+    connection = engine.connect()
+    damovie = str(movie)
+    sqlquery = "select title from title where title = " + damovie
+    result = connect.execute(sqlquery)
+    alist = []
+    for row in result:
+        alist.append(row['title'])
+    return render_template('')
 
 
 if __name__ == '__main__':
