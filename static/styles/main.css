@@ -4,9 +4,11 @@ html{
 
 
 body{
-  background-color: white;
-  margin: 5px 15px 10px 15px;
-  padding: 0px 10px 5px 10px;
+  background-image: url("moviebackground.jpg");
+  margin: 20px 15px 10px 15px;
+  padding: 90px 10px 5px 10px;
+  color: white;
+
 }
 
 .horiz{
