@@ -1,0 +1,13 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<ul id="titles">
+{% for item in titleList %}
+    <li>{{ item }}</li>
+{% endfor %}
+</ul>
+
+{% endblock %}
