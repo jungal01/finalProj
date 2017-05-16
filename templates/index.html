@@ -2,12 +2,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-<ul>
-  <li id="horizontal">Home</li>
-  <li id="horizontal">OMDB</li>
-</ul>
-
+<title>Home</title>
+<h2>Movies in 2017</h2>
 <ul id="titles">
+<p>Here are some movies, for example</p>
 {% for item in titleList %}
     <li>{{ item }}</li>
 {% endfor %}
