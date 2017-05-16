@@ -30,14 +30,14 @@ def index():
 @app.route('/<string:movie>')
 def moviesearch(movie):
     if movie == "favicon.ico":
-        movie == "" 
+        damovie == ""
     connection = engine.connect()
     damovie = str(movie)
-    sqlquery = "select title from title where title = " + damovie
+    sqlquery = "select title from release_date where title = " + damovie
     result = connection.execute(sqlquery)
     alist = []
     for row in result:
-        alist.append(row['title'])
+        alist.append( [row['title'], row['date']])
     return render_template('form.html', title=alist)
 
 @app.route('/cool_form', methods=['GET', 'POST'])
